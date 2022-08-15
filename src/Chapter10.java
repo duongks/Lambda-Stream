@@ -11,12 +11,8 @@ public class Chapter10 {
 		list.add(new Task(LocalDate.of(2021, 8, 10), "散髪に行く", false));
 		list.add(new Task(LocalDate.of(2021, 11, 9), "スクールの課題を解く", false));
 
-		int count = 0;
-		for (Task t : list) {
-			if (!t.isDone()) {
-				count++;
-			}
-		}
+		long count = list.stream().filter(t -> !t.isDone()).count();
+
 		System.out.println("未完了のタスクの個数は" + count);
 
 		System.out.println("【未完了のタスクを昇順に並び替えて一覧表示】");
